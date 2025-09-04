@@ -29,10 +29,35 @@ A modern, responsive Next.js application for Aesthetica Capital, providing busin
 
 2. Run the development server:
    ```bash
+   # Standard development server
    npm run dev
+   
+   # Development server with port cleanup (recommended)
+   npm run dev:clean
+   
+   # Or run the script directly
+   ./scripts/dev.sh        # macOS/Linux
+   scripts\dev.bat         # Windows
    ```
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Development Scripts
+
+The project includes development scripts that automatically:
+- Kill any existing process on port 3000
+- Install dependencies if needed
+- Start the Next.js development server
+
+**macOS/Linux:**
+```bash
+./scripts/dev.sh
+```
+
+**Windows:**
+```cmd
+scripts\dev.bat
+```
 
 ## Project Structure
 
