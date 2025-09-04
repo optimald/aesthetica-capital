@@ -2,11 +2,22 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 export default function CTA() {
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-600 to-blue-700">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+    <section className="py-20 bg-gradient-to-br from-indigo-600 to-blue-700 relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/cta-image.webp"
+          alt="CTA Background"
+          fill
+          className="object-cover opacity-20"
+        />
+      </div>
+      
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

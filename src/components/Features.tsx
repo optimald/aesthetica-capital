@@ -9,19 +9,19 @@ const features = [
     icon: Clock,
     title: "Quick & Hassle-Free Process",
     description: "Apply in minutes, get approved in as little as 24 hours, and access your funds without delay.",
-    image: "/images/fintech-card.png"
+    image: "/images/business-image.webp"
   },
   {
     icon: Shield,
     title: "No Hidden Fees",
     description: "What you see is what you get—transparent, upfront terms with no unexpected costs.",
-    image: "/images/fintech-card.png"
+    image: "/images/seamless-image.webp"
   },
   {
     icon: Settings,
     title: "Flexible Funding Options",
     description: "Customized financing solutions tailored to the needs of your aesthetic or wellness business.",
-    image: "/images/fintech-card.png"
+    image: "/images/financial-image.webp"
   }
 ]
 
@@ -72,16 +72,15 @@ export default function Features() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
             >
-              <div className="h-48 bg-gradient-to-br from-indigo-100 to-blue-100 flex items-center justify-center relative">
+              <div className="h-64 relative">
                 <Image
                   src={feature.image}
                   alt={feature.title}
-                  width={300}
-                  height={200}
-                  className="object-contain"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute top-4 left-4">
-                  <feature.icon className="h-8 w-8 text-indigo-600" />
+                  <feature.icon className="h-8 w-8 text-white bg-black bg-opacity-50 rounded-lg p-1" />
                 </div>
               </div>
               <div className="p-8">

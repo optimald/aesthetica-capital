@@ -43,20 +43,9 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/background-gradient.svg"
-          alt="Background"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
+    <div className="relative min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="relative z-50 p-6">
+      <nav className="absolute top-0 left-0 right-0 z-50 p-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Image src="/images/fintech-logo.png" alt="Aesthetica Capital" width={200} height={60} className="h-12 w-auto" />
           <div className="hidden md:flex space-x-8">
@@ -66,7 +55,7 @@ export default function Hero() {
         </div>
       </nav>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-6 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
           <motion.div
@@ -101,7 +90,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-2xl p-8"
+            className="bg-white rounded-2xl shadow-2xl p-8 border border-gray-200"
           >
             <div className="mb-6">
               <div className="flex items-center justify-between mb-4">
