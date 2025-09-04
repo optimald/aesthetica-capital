@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero'
+import ClientLogos from '@/components/ClientLogos'
 import FinancingOptions from '@/components/FinancingOptions'
 import Stats from '@/components/Stats'
 import Process from '@/components/Process'
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Hero />
+      <ClientLogos />
       <FinancingOptions />
       <Stats />
       <Process />

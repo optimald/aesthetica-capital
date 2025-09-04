@@ -1,11 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, CreditCard, DollarSign, Wrench, LineChart, Building, Shield } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 const financingOptions = [
   {
-    icon: Building,
+    icon: '/images/loan-icon.svg',
     title: "Startup Capital Loan",
     description: "Launch or grow your business with ease",
     requirements: "Requires 680+ credit score",
@@ -15,7 +16,7 @@ const financingOptions = [
     color: "from-blue-500 to-blue-600"
   },
   {
-    icon: DollarSign,
+    icon: '/images/business-icon.svg',
     title: "Business Cash Advance",
     description: "Fast access to capital in 24 hours or less",
     requirements: "No minimum credit score required",
@@ -25,7 +26,7 @@ const financingOptions = [
     color: "from-green-500 to-green-600"
   },
   {
-    icon: Wrench,
+    icon: '/images/finance-icon.svg',
     title: "Equipment Financing",
     description: "Finance new equipment or leverage existing assets",
     requirements: "1 year in business required",
@@ -35,7 +36,7 @@ const financingOptions = [
     color: "from-purple-500 to-purple-600"
   },
   {
-    icon: LineChart,
+    icon: '/images/credit-card-icon.png',
     title: "Business Line of Credit",
     description: "Access only what you need, when you need it",
     requirements: "Simple online application",
@@ -45,7 +46,7 @@ const financingOptions = [
     color: "from-orange-500 to-orange-600"
   },
   {
-    icon: Shield,
+    icon: '/images/unsecured-icon.svg',
     title: "Unsecured Business Loan",
     description: "Fast capital with no collateral needed",
     requirements: "Standard business requirements",
@@ -55,7 +56,7 @@ const financingOptions = [
     color: "from-red-500 to-red-600"
   },
   {
-    icon: CreditCard,
+    icon: '/images/credit-card-icon.png',
     title: "SBA 7(a) Growth Loan",
     description: "Backed by the SBA for long-term growth",
     requirements: "2+ years in business & 680+ credit score",
@@ -65,7 +66,7 @@ const financingOptions = [
     color: "from-indigo-500 to-indigo-600"
   },
   {
-    icon: CreditCard,
+    icon: '/images/credit-card-icon.png',
     title: "Business Credit Cards",
     description: "Build and strengthen your business credit profile",
     requirements: "Standard business requirements",
@@ -105,8 +106,14 @@ export default function FinancingOptions() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 group"
             >
-              <div className={`w-16 h-16 bg-gradient-to-r ${option.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <option.icon className="h-8 w-8 text-white" />
+              <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Image
+                  src={option.icon}
+                  alt={option.title}
+                  width={32}
+                  height={32}
+                  className="w-8 h-8"
+                />
               </div>
               
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{option.title}</h3>

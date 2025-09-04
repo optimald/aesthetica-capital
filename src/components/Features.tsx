@@ -2,25 +2,26 @@
 
 import { motion } from 'framer-motion'
 import { Clock, Shield, Settings, Phone, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 const features = [
   {
     icon: Clock,
     title: "Quick & Hassle-Free Process",
     description: "Apply in minutes, get approved in as little as 24 hours, and access your funds without delay.",
-    image: "/images/placeholder.jpg"
+    image: "/images/fintech-card.png"
   },
   {
     icon: Shield,
     title: "No Hidden Fees",
     description: "What you see is what you get—transparent, upfront terms with no unexpected costs.",
-    image: "/images/placeholder.jpg"
+    image: "/images/fintech-card.png"
   },
   {
     icon: Settings,
     title: "Flexible Funding Options",
     description: "Customized financing solutions tailored to the needs of your aesthetic or wellness business.",
-    image: "/images/placeholder.jpg"
+    image: "/images/fintech-card.png"
   }
 ]
 
@@ -71,8 +72,17 @@ export default function Features() {
               viewport={{ once: true }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
             >
-              <div className="h-48 bg-gradient-to-br from-indigo-100 to-blue-100 flex items-center justify-center">
-                <feature.icon className="h-16 w-16 text-indigo-600" />
+              <div className="h-48 bg-gradient-to-br from-indigo-100 to-blue-100 flex items-center justify-center relative">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  width={300}
+                  height={200}
+                  className="object-contain"
+                />
+                <div className="absolute top-4 left-4">
+                  <feature.icon className="h-8 w-8 text-indigo-600" />
+                </div>
               </div>
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>

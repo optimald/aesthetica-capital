@@ -25,7 +25,7 @@ export default function Hero() {
   }
 
   const handleNext = () => {
-    if (currentStep < 3) {
+    if (currentStep < 2) {
       setCurrentStep(currentStep + 1)
     }
   }
@@ -43,11 +43,22 @@ export default function Hero() {
   }
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/background-gradient.svg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 z-50 p-6">
+      <nav className="relative z-50 p-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Image src="/images/logo.svg" alt="Aesthetica Capital" width={200} height={60} className="h-12 w-auto" />
+          <Image src="/images/fintech-logo.png" alt="Aesthetica Capital" width={200} height={60} className="h-12 w-auto" />
           <div className="hidden md:flex space-x-8">
             <a href="#about" className="text-gray-700 hover:text-indigo-600 transition-colors">About Us</a>
             <a href="#contact" className="text-gray-700 hover:text-indigo-600 transition-colors">Contact</a>
@@ -55,7 +66,7 @@ export default function Hero() {
         </div>
       </nav>
 
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
           <motion.div
@@ -235,9 +246,9 @@ export default function Hero() {
                 >
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Done!</h3>
-                  <p className="text-gray-600 mb-6">Your application has been submitted successfully.</p>
+                  <p className="text-gray-600 mb-6">Now you can clone this project and reuse the form.</p>
                   <button className="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors">
-                    Clone Project
+                    Clone
                   </button>
                 </motion.div>
               )}
