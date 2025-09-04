@@ -30,12 +30,6 @@ const footerLinks = {
   ]
 }
 
-const socialLinks = [
-  { name: 'Facebook', href: '#' },
-  { name: 'Twitter', href: '#' },
-  { name: 'LinkedIn', href: '#' },
-  { name: 'Instagram', href: '#' }
-]
 
 export default function Footer() {
   return (

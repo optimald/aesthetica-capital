@@ -45,7 +45,7 @@ export default function ApplicationForm() {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000))
       setIsSubmitted(true)
-    } catch (error) {
+    } catch {
       setIsError(true)
     }
   }
@@ -78,7 +78,7 @@ export default function ApplicationForm() {
             <CheckCircle className="h-20 w-20 text-green-500 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Done!</h2>
             <p className="text-gray-600 mb-8 text-lg">
-              Your application has been submitted successfully. We'll review your information and get back to you within 24 hours.
+              Your application has been submitted successfully. We&apos;ll review your information and get back to you within 24 hours.
             </p>
             <button
               onClick={resetForm}
