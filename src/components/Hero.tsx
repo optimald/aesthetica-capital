@@ -33,7 +33,12 @@ export default function Hero() {
 
   const handleNext = () => {
     if (currentStep < 2) {
-      setCurrentStep(currentStep + 1)
+      // Validate step 1 fields before proceeding
+      if (formData.businessName && formData.businessStartDate && formData.monthlyRevenue && formData.creditScore) {
+        setCurrentStep(currentStep + 1)
+      } else {
+        alert('Please fill in all required fields before proceeding.')
+      }
     }
   }
 
@@ -180,31 +185,33 @@ export default function Hero() {
                     )}
 
                     {currentStep === 2 && (
-                      <div className="fields-group">
+                      <div className="fields-group step-2-fields">
                         <div className="form-label">Name</div>
-                        <div className="text-field-wrapper">
-                          <input
-                            type="text"
-                            name="firstName"
-                            value={formData.firstName}
-                            onChange={handleInputChange}
-                            className="text-field-3"
-                            placeholder="First Name"
-                            required
-                          />
-                          <div className="text-field-done"></div>
-                        </div>
-                        <div className="text-field-wrapper">
-                          <input
-                            type="text"
-                            name="lastName"
-                            value={formData.lastName}
-                            onChange={handleInputChange}
-                            className="text-field-3"
-                            placeholder="Last Name"
-                            required
-                          />
-                          <div className="text-field-done"></div>
+                        <div className="name-fields-row">
+                          <div className="text-field-wrapper">
+                            <input
+                              type="text"
+                              name="firstName"
+                              value={formData.firstName}
+                              onChange={handleInputChange}
+                              className="text-field-3"
+                              placeholder="First Name"
+                              required
+                            />
+                            <div className="text-field-done"></div>
+                          </div>
+                          <div className="text-field-wrapper">
+                            <input
+                              type="text"
+                              name="lastName"
+                              value={formData.lastName}
+                              onChange={handleInputChange}
+                              className="text-field-3"
+                              placeholder="Last Name"
+                              required
+                            />
+                            <div className="text-field-done"></div>
+                          </div>
                         </div>
 
                         <div className="form-label">Email</div>
@@ -483,6 +490,19 @@ export default function Hero() {
             margin-bottom: 12px;
           }
 
+          .step-2-fields {
+            gap: 16px;
+          }
+
+          .name-fields-row {
+            display: flex;
+            gap: 12px;
+          }
+
+          .name-fields-row .text-field-wrapper {
+            flex: 1;
+          }
+
           .form-label {
             font-size: 13px;
             font-weight: 600;
@@ -555,8 +575,9 @@ export default function Hero() {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            margin-top: 20px;
             width: 100%;
+            gap: 12px;
           }
 
           .form-back {
@@ -575,7 +596,7 @@ export default function Hero() {
 
           .form-next,
           .form-button {
-            width: 100%;
+            flex: 1;
             padding: 10px 20px;
             background: #000000;
             color: #ffffff;

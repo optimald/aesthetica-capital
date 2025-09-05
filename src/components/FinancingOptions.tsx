@@ -30,9 +30,7 @@ export default function FinancingOptions() {
           </motion.h4>
           
           <div className="w-layout-grid features-component-layout">
-            <motion.a
-              href="/apply"
-              target="_blank"
+            <motion.div
               className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -56,11 +54,9 @@ export default function FinancingOptions() {
                 - Pre-qualify with a soft credit check
               </div>
               <p className="paragraph-2" onClick={() => openModal('startup')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
-            </motion.a>
+            </motion.div>
 
-            <motion.a
-              href="/apply"
-              target="_blank"
+            <motion.div
               className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -82,11 +78,9 @@ export default function FinancingOptions() {
                 - Daily or weekly payments
               </div>
               <p className="paragraph-2" onClick={() => openModal('cash-advance')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
-            </motion.a>
+            </motion.div>
 
-            <motion.a
-              href="/apply"
-              target="_blank"
+            <motion.div
               className="layout-wrapper w-inline-block tall"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -116,11 +110,9 @@ export default function FinancingOptions() {
                 alt="Credit cards"
                 className="feature-card-image"
               />
-            </motion.a>
+            </motion.div>
 
-            <motion.a
-              href="/apply"
-              target="_blank"
+            <motion.div
               className="layout-wrapper w-inline-block wide"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -145,11 +137,9 @@ export default function FinancingOptions() {
                 </div>
               </div>
               <p className="paragraph-2" onClick={() => openModal('line-of-credit')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
-            </motion.a>
+            </motion.div>
 
-            <motion.a
-              href="/apply"
-              target="_blank"
+            <motion.div
               className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -172,11 +162,9 @@ export default function FinancingOptions() {
                 - Receive funds within 24 hours
               </div>
               <p className="paragraph-2" onClick={() => openModal('unsecured')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
-            </motion.a>
+            </motion.div>
 
-            <motion.a
-              href="/apply"
-              target="_blank"
+            <motion.div
               className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -200,11 +188,9 @@ export default function FinancingOptions() {
                 - Business must meet SBA eligibility
               </div>
               <p className="paragraph-2" onClick={() => openModal('sba')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
-            </motion.a>
+            </motion.div>
 
-            <motion.a
-              href="/apply"
-              target="_blank"
+            <motion.div
               className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -225,7 +211,7 @@ export default function FinancingOptions() {
                 - Access flexible spending with customizable credit limits
               </div>
               <p className="paragraph-2" onClick={() => openModal('credit-cards')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
-            </motion.a>
+            </motion.div>
           </div>
         </div>
         

@@ -39,7 +39,7 @@ export default function Header() {
               <div className="navbar-menu">
                 <a href="/" className="navbar-link">Home</a>
                 <a href="/about-us" className="navbar-link">About Us</a>
-                <a href="/contact-us" className="navbar-link">Contact</a>
+                <a href="/learn-more" className="navbar-link">Learn More</a>
               </div>
               <button className="button nav">Contact Us</button>
             </div>

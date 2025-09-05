@@ -25,14 +25,14 @@ export default function Footer() {
           <div className="w-layout-grid footer-menu-wrapper">
             <div className="footer-link-list">
               <div className="footer-link-list-heading">Banking</div>
-              <a href="https://www.aesthetica-capital.com/" target="_blank" className="footer-link">
+              <a href="/solutions" className="footer-link">
                 <div>Solutions</div>
               </a>
             </div>
 
             <div className="footer-link-list">
               <div className="footer-link-list-heading">Resources</div>
-              <a href="https://www.aesthetica-capital.com/" target="_blank" className="footer-link">
+              <a href="/support" className="footer-link">
                 <div>Support</div>
               </a>
             </div>
@@ -81,9 +81,9 @@ export default function Footer() {
           </div>
           <div className="footer-bottom-right">
             <div className="w-layout-grid footer-legal-list">
-              <a href="#" className="footer-legal-link">Terms</a>
-              <a href="#" className="footer-legal-link">Privacy</a>
-              <a href="#" className="footer-legal-link">Cookies</a>
+              <a href="/terms-of-service" className="footer-legal-link">Terms</a>
+              <a href="/privacy-policy" className="footer-legal-link">Privacy</a>
+              <a href="/cookies" className="footer-legal-link">Cookies</a>
             </div>
           </div>
         </div>
