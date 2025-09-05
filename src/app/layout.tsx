@@ -31,9 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="w-mod-js">
       <head>
-        <link href="/webflow.css" rel="stylesheet" type="text/css" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#4f46e5" />
+        <meta name="theme-color" content="#d4af37" />
         <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
         <script dangerouslySetInnerHTML={{
           __html: `WebFont.load({ google: { families: ["Inter:regular,600"] } });`

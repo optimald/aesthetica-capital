@@ -61,7 +61,7 @@ export default function ClientLogos() {
 
       <style jsx>{`
         .logos-title-small {
-          background: #111827;
+          background: #0a0a0a;
           padding: 60px 0;
           border-top: 1px solid #374151;
           border-bottom: 1px solid #374151;

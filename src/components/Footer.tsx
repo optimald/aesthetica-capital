@@ -18,8 +18,7 @@ export default function Footer() {
               />
             </a>
             <div className="text-small">
-              We care about your data in our{' '}
-              <a href="#" className="text-link">privacy policy.</a>
+              Empowering aesthetic businesses with flexible financing solutions that grow with your vision.
             </div>
           </div>
 
@@ -92,7 +91,7 @@ export default function Footer() {
 
       <style jsx>{`
         .section-1921 {
-          background: #111827;
+          background: #0a0a0a;
           padding: 80px 0 40px;
           border-top: 1px solid #374151;
         }
@@ -130,7 +129,7 @@ export default function Footer() {
         }
 
         .text-link {
-          color: #4f46e5;
+          color: #d4af37;
           text-decoration: none;
         }
 
@@ -181,7 +180,7 @@ export default function Footer() {
         }
 
         .footer-link:hover {
-          color: #4f46e5;
+          color: #d4af37;
         }
 
         .footer-social-link {
@@ -191,7 +190,7 @@ export default function Footer() {
         }
 
         .footer-social-link:hover {
-          color: #4f46e5;
+          color: #d4af37;
         }
 
         .footer-social-icon {
@@ -230,7 +229,7 @@ export default function Footer() {
         }
 
         .footer-legal-link:hover {
-          color: #4f46e5;
+          color: #d4af37;
         }
 
         @media (max-width: 768px) {

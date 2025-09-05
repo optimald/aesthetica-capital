@@ -2,10 +2,58 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 
 export default function Process() {
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const [stepProgress, setStepProgress] = useState([0, 0, 0, 0, 0])
+
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const scrollPercent = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0
+      setScrollProgress(scrollPercent)
+
+      // Calculate sequential step progress based on scroll position
+      const newProgress = [0, 0, 0, 0, 0]
+      
+      // Step 1: grows from 40% to 50% scroll
+      if (scrollPercent >= 40) {
+        newProgress[0] = Math.min((scrollPercent - 40) / 10, 1)
+      }
+      
+      // Step 2: grows from 50% to 60% scroll
+      if (scrollPercent >= 50) {
+        newProgress[1] = Math.min((scrollPercent - 50) / 10, 1)
+      }
+      
+      // Step 3: grows from 60% to 70% scroll
+      if (scrollPercent >= 60) {
+        newProgress[2] = Math.min((scrollPercent - 60) / 10, 1)
+      }
+      
+      // Step 4: grows from 70% to 80% scroll
+      if (scrollPercent >= 70) {
+        newProgress[3] = Math.min((scrollPercent - 70) / 10, 1)
+      }
+      
+      // Step 5: grows from 80% to 90% scroll
+      if (scrollPercent >= 80) {
+        newProgress[4] = Math.min((scrollPercent - 80) / 10, 1)
+      }
+      
+      setStepProgress(newProgress)
+    }
+
+    updateScrollProgress()
+    window.addEventListener('scroll', updateScrollProgress, { passive: true })
+    return () => window.removeEventListener('scroll', updateScrollProgress)
+  }, [])
   return (
-    <div className="steps-process-desktop black" style={{ background: '#111827' }}>
+    <>
+      
+      <div className="steps-process-desktop black" style={{ background: '#0a0a0a' }}>
       <div className="container-3">
         <motion.div
           className="center-div max-720w margin-xl"
@@ -45,7 +93,13 @@ export default function Process() {
                   alt=""
                   className="step-1-number"
                 />
-                <div className="black-line"></div>
+                <div 
+                  className="black-line" 
+                  style={{ 
+                    height: `${Math.max(stepProgress[0] * 80, 0)}px`,
+                    marginTop: '10px'
+                  }}
+                ></div>
               </div>
               <div className="step-1-info-wrapper">
                 <div className="process-image">
@@ -82,7 +136,13 @@ export default function Process() {
                   alt=""
                   className="step-2-number"
                 />
-                <div className="black-line"></div>
+                <div 
+                  className="black-line" 
+                  style={{ 
+                    height: `${Math.max(stepProgress[1] * 80, 0)}px`,
+                    marginTop: '10px'
+                  }}
+                ></div>
               </div>
               <div className="step-2-info-wrapper">
                 <div className="process-image">
@@ -119,7 +179,13 @@ export default function Process() {
                   alt=""
                   className="step-3-number"
                 />
-                <div className="black-line"></div>
+                <div 
+                  className="black-line" 
+                  style={{ 
+                    height: `${Math.max(stepProgress[2] * 80, 0)}px`,
+                    marginTop: '10px'
+                  }}
+                ></div>
               </div>
               <div className="step-3-info-wrapper">
                 <div className="process-image">
@@ -156,7 +222,13 @@ export default function Process() {
                   alt=""
                   className="step-4-number"
                 />
-                <div className="black-line"></div>
+                <div 
+                  className="black-line" 
+                  style={{ 
+                    height: `${Math.max(stepProgress[3] * 80, 0)}px`,
+                    marginTop: '10px'
+                  }}
+                ></div>
               </div>
               <div className="step-4-info-wrapper">
                 <div className="process-image">
@@ -178,7 +250,7 @@ export default function Process() {
             </motion.div>
 
             <motion.div
-              className="step-wrapper"
+              className="step-wrapper margin-l"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -192,7 +264,13 @@ export default function Process() {
                   alt="Step 5"
                   className="step-5-number"
                 />
-                <div className="black-line"></div>
+                <div 
+                  className="black-line" 
+                  style={{ 
+                    height: `${Math.max(stepProgress[4] * 80, 0)}px`,
+                    marginTop: '10px'
+                  }}
+                ></div>
               </div>
               <div className="step-5-info-wrapper">
                 <div className="process-image">
@@ -297,7 +375,7 @@ export default function Process() {
         .white-line {
           width: 100%;
           height: 100%;
-          background: linear-gradient(to bottom, #4f46e5, #4f46e5);
+          background: #d4af37;
           position: absolute;
           top: 0;
           left: 0;
@@ -313,10 +391,11 @@ export default function Process() {
           display: flex;
           align-items: flex-start;
           gap: 40px;
+          position: relative;
         }
 
         .margin-l {
-          margin-left: 20px;
+          margin-left: 0;
         }
 
         .step {
@@ -334,7 +413,7 @@ export default function Process() {
         .step-5-number {
           width: 60px;
           height: 60px;
-          background: #4f46e5;
+          background: #d4af37;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -346,8 +425,10 @@ export default function Process() {
 
         .black-line {
           width: 2px;
-          height: 40px;
-          background: #4f46e5;
+          background: #d4af37;
+          transition: height 0.2s ease-out;
+          min-height: 0;
+          position: relative;
         }
 
         .step-1-info-wrapper,
@@ -398,7 +479,7 @@ export default function Process() {
         .button-scroller {
           display: inline-block;
           padding: 12px 24px;
-          background: #4f46e5;
+          background: #d4af37;
           color: white;
           text-decoration: none;
           border-radius: 8px;
@@ -407,7 +488,7 @@ export default function Process() {
         }
 
         .button-scroller:hover {
-          background: #4338ca;
+          background: #b8941f;
         }
 
         .bg-gradient {
@@ -451,5 +532,6 @@ export default function Process() {
         }
       `}</style>
     </div>
+    </>
   )
 }

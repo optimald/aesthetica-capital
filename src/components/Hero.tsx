@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -43,31 +43,21 @@ export default function Hero() {
 
   return (
     <>
-      {/* Navigation */}
-      <nav className="navbar">
-        <div className="container">
-          <div className="navbar-wrapper">
-            <a href="/" className="navbar-logo">
-              <Image
-                src="/images/fintech-logo.png"
-                alt="Aesthetica Capital"
-                width={320}
-                height={80}
-                priority
-              />
-            </a>
-            <div className="navbar-menu">
-              <a href="/" className="navbar-link">Home</a>
-              <a href="/about-us" className="navbar-link">About Us</a>
-              <a href="/contact-us" className="navbar-link">Contact</a>
-              <button className="button nav">Contact Us</button>
-            </div>
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <section className="section-1920 hero-1920">
+        {/* Video Background */}
+        <video
+          className="hero-video-background"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
+          <source src="/videos/hero-background.mov" type="video/quicktime" />
+        </video>
+
         <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'left' }}>
           <div className="hero-layout">
             {/* Left Content */}
@@ -78,17 +68,8 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                Unlock Growth at Every Business Stage
+                Grow Your Aesthetic Business with Flexible Financing Solutions.
               </motion.h1>
-
-              <motion.h2
-                className="h2-subtitle"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              >
-                Fast, Flexible Financing Tailored to Your Needs
-              </motion.h2>
 
               <motion.p
                 className="paragraph-default-desktop"
@@ -96,7 +77,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
-                Get quick approvals, expert guidance, and a seamless platform to fuel your success—apply today.
+                Enjoy quick approvals, customizable terms, and expert guidance—all streamlined into one platform for your success.
               </motion.p>
             </div>
 
@@ -112,7 +93,7 @@ export default function Hero() {
                   <div className="form-step">
                     <div className="step-number">Step {currentStep}/2</div>
                     <h2 className="form-heading">
-                      {currentStep === 1 ? 'Get Approved Today' : 'One last step!'}
+                      {currentStep === 1 ? 'Apply Now!' : 'One last step!'}
                     </h2>
 
                     {currentStep === 1 && (
@@ -250,7 +231,7 @@ export default function Hero() {
                       )}
                     </div>
                     <div className="form-disclaimer">
-                      By clicking 'Next Step', you agree to our Terms of Service and Privacy Policy.
+                      By clicking 'Next Step', you agree to our <a href="/terms" style={{ color: '#d4af37', textDecoration: 'underline' }}>Terms of Service</a> and <a href="/privacy" style={{ color: '#d4af37', textDecoration: 'underline' }}>Privacy Policy</a>.
                     </div>
                   </div>
                 </form>
@@ -267,49 +248,57 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Background Elements */}
-        <div className="hero-background">
-          <Image
-            src="/images/hero-background.svg"
-            alt=""
-            fill
-            className="hero-bg-gradient"
-            priority
-          />
-        </div>
 
         <style jsx>{`
           .navbar {
             position: sticky;
             top: 0;
-            background: #111827;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             z-index: 1000;
-            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.1);
             border-bottom: 1px solid #374151;
+          }
+
+          .navbar-content {
+            position: relative;
+            padding: 20px 0;
           }
 
           .navbar-wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+          }
+
+          .navbar .navbar-wrapper .navbar-menu {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
           }
 
           .navbar-menu {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 8px !important;
           }
 
           .navbar-link {
             color: #9ca3af;
             font-weight: 500;
+            font-size: 16px;
             text-decoration: none !important;
             transition: color 0.2s;
-            padding: 8px 12px;
+            padding: 0;
+            position: relative;
           }
 
           .navbar-link:hover {
-            color: #4f46e5;
+            color: #ffffff;
             text-decoration: none !important;
           }
 
@@ -317,6 +306,11 @@ export default function Hero() {
           .navbar-link:active,
           .navbar-link:visited {
             text-decoration: none !important;
+          }
+
+          .navbar-link[href="/"] {
+            color: #ffffff;
+            font-weight: 500;
           }
 
           .button.nav {
@@ -340,45 +334,21 @@ export default function Hero() {
           }
 
           .section-1920 {
-            background: 
-              linear-gradient(135deg, #0a0a0a 0%, #1a0d2e 15%, #2d1b69 35%, #4c1d95 55%, #7c3aed 75%, #a855f7 90%, #c084fc 100%),
-              radial-gradient(circle at 25% 75%, rgba(124, 58, 237, 0.4) 0%, transparent 40%),
-              radial-gradient(circle at 75% 25%, rgba(168, 85, 247, 0.3) 0%, transparent 45%),
-              radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.2) 0%, transparent 60%);
-            padding: 20px 0;
-            height: 100vh;
+            padding: 5px 0;
+            height: calc(100vh - 90px);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
           }
 
-          .hero-background {
+          .hero-video-background {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            opacity: 0.3;
-          }
-
-          .hero-bg-gradient {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            object-position: center;
-          }
-
-          .section-1920::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-              radial-gradient(circle at 15% 85%, rgba(79, 70, 229, 0.2) 0%, transparent 40%),
-              radial-gradient(circle at 85% 15%, rgba(79, 70, 229, 0.15) 0%, transparent 45%),
-              radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 60%);
             z-index: 1;
           }
 
@@ -387,30 +357,31 @@ export default function Hero() {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-              linear-gradient(45deg, transparent 0%, rgba(79, 70, 229, 0.05) 50%, transparent 100%),
-              linear-gradient(135deg, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
             z-index: 1;
           }
+
+
 
           .hero-layout {
             display: grid;
             grid-template-columns: 1fr auto;
-            gap: 30px;
+            gap: 20px;
             align-items: center;
             justify-items: start;
             position: relative;
             z-index: 2;
             height: 100%;
-            max-height: calc(100vh - 120px);
+            max-height: calc(100vh - 110px);
+            padding: 5px 0;
           }
 
           .hero-content {
-            max-width: 700px;
+            max-width: 600px;
             text-align: left !important;
-            padding-right: 60px;
+            padding-right: 40px;
           }
 
           .hero-content h1,
@@ -420,36 +391,28 @@ export default function Hero() {
           }
 
           .h1-desktop {
-            font-size: 68px;
+            font-size: 48px;
             font-weight: 900;
             line-height: 1.1;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 30%, #e2e8f0 60%, #cbd5e1 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 32px;
+            color: #ffffff;
+            margin-bottom: 16px;
             letter-spacing: -0.03em;
             font-family: 'Inter', sans-serif;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
           }
 
           .h2-subtitle {
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 600;
             line-height: 1.3;
-            background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #7c3aed 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 36px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
             letter-spacing: -0.01em;
             font-family: 'Inter', sans-serif;
-            text-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
           }
 
           .paragraph-default-desktop {
-            font-size: 20px;
-            line-height: 1.7;
+            font-size: 16px;
+            line-height: 1.5;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0;
             font-weight: 400;
@@ -459,20 +422,17 @@ export default function Hero() {
           }
 
           .form-block-3-desktop {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 32px;
-            border-radius: 24px;
+            padding: 16px;
+            border-radius: 12px;
             box-shadow: 
-              0 25px 60px rgba(124, 58, 237, 0.2),
-              0 15px 35px rgba(168, 85, 247, 0.15),
-              inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            max-width: 420px;
+              0 8px 32px rgba(0, 0, 0, 0.12),
+              0 2px 8px rgba(0, 0, 0, 0.08);
+            max-width: 320px;
             width: 100%;
-            max-height: 75vh;
-            overflow-y: auto;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(0, 0, 0, 0.08);
           }
 
           .form-step {
@@ -481,32 +441,33 @@ export default function Hero() {
 
           .step-number {
             font-size: 14px;
-            color: #4f46e5;
-            margin-bottom: 16px;
+            color: #d4af37;
+            margin-bottom: 4px;
             font-weight: 600;
+            text-align: center;
           }
 
           .form-heading {
             font-size: 18px;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 8px;
+            font-weight: 800;
+            color: #0a0a0a;
+            margin-bottom: 12px;
+            text-align: center;
           }
 
           .fields-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 12px;
           }
 
-
           .form-label {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: #374151;
             text-align: left;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
           }
 
           .text-field-wrapper {
@@ -517,19 +478,21 @@ export default function Hero() {
           .text-field-4,
           .text-field-3 {
             width: 100%;
-            padding: 8px;
+            padding: 8px 10px;
             background: #f9fafb;
             border: 1px solid #d1d5db;
-            border-radius: 4px;
-            color: #111827;
+            border-radius: 6px;
+            color: #0a0a0a;
             font-size: 14px;
+            font-weight: 400;
             transition: border-color 0.2s;
+            box-sizing: border-box;
           }
 
           .text-field-4:focus,
           .text-field-3:focus {
             outline: none;
-            border-color: #4f46e5;
+            border-color: #d4af37;
             background: white;
           }
 
@@ -560,59 +523,56 @@ export default function Hero() {
           }
 
           .form-disclaimer {
-            font-size: 11px;
+            font-size: 10px;
             color: #6b7280;
             text-align: center;
             margin-top: 6px;
-            line-height: 1.3;
+            line-height: 1.2;
           }
 
           .form-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 12px;
+            margin-top: 10px;
+            width: 100%;
           }
 
-          .form-back,
-          .form-next {
-            padding: 8px 12px;
+          .form-back {
             background: transparent;
-            color: #9ca3af;
-            border: 1px solid #4b5563;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 14px;
-          }
-
-          .form-back:hover,
-          .form-next:hover {
-            background: #374151;
-            color: white;
-          }
-
-          .form-button {
-            padding: 16px 32px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            color: #000000;
+            color: #6b7280;
             border: none;
-            border-radius: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 0;
+          }
+
+          .form-back:hover {
+            color: #374151;
+          }
+
+          .form-next,
+          .form-button {
+            width: 100%;
+            padding: 10px 20px;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
+            transition: all 0.2s ease;
+            font-size: 14px;
             font-family: 'Inter', sans-serif;
-            text-transform: none;
-            letter-spacing: 0;
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
-            text-shadow: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-sizing: border-box;
           }
 
+          .form-next:hover,
           .form-button:hover {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
+            background: #1f2937;
           }
 
           .success-message-desktop {
@@ -628,8 +588,8 @@ export default function Hero() {
           .button-2 {
             display: inline-block;
             padding: 12px 24px;
-            background: #4f46e5;
-            color: white;
+            background: #d4af37;
+            color: #000000;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -637,19 +597,32 @@ export default function Hero() {
           }
 
           .button-2:hover {
-            background: #4338ca;
+            background: #b8941f;
+          }
+
+          .scroll-progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.2s ease-out;
+            min-width: 0;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+            z-index: 1001;
           }
 
           @media (max-width: 768px) {
             .section-1920 {
-              padding: 40px 0;
-              min-height: 70vh;
+              padding: 10px 0;
+              height: calc(100vh - 100px);
             }
 
             .hero-layout {
               grid-template-columns: 1fr;
-              gap: 40px;
+              gap: 15px;
               text-align: left;
+              max-height: calc(100vh - 120px);
             }
 
             .hero-content {
@@ -658,25 +631,26 @@ export default function Hero() {
             }
 
             .h1-desktop {
-              font-size: 38px;
+              font-size: 28px;
               line-height: 1.2;
-              margin-bottom: 24px;
+              margin-bottom: 12px;
             }
 
             .h2-subtitle {
-              font-size: 20px;
+              font-size: 16px;
               line-height: 1.4;
-              margin-bottom: 24px;
+              margin-bottom: 12px;
             }
 
             .paragraph-default-desktop {
-              font-size: 17px;
-              line-height: 1.6;
+              font-size: 14px;
+              line-height: 1.4;
               max-width: 100%;
             }
 
             .form-block-3-desktop {
-              padding: 24px 20px;
+              padding: 16px;
+              max-width: 300px;
             }
 
           }

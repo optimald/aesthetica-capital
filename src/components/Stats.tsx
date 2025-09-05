@@ -88,7 +88,7 @@ export default function Stats() {
             
             <div className="layout-text-wrapper">
               <div className="heading">{Math.floor(counts.funded)}+</div>
-              <div className="paragraph">Success Funded</div>
+              <div className="paragraph">Funded</div>
             </div>
             
             <div className="vertical-divider"></div>
@@ -118,7 +118,7 @@ export default function Stats() {
 
       <style jsx>{`
         .data-section-desktop {
-          background: #111827;
+          background: #0a0a0a;
           padding: 120px 0;
           position: relative;
           overflow: hidden;
@@ -168,7 +168,7 @@ export default function Stats() {
                   .layout-text-wrapper .heading {
             font-size: 80px;
             font-weight: 900;
-            background: linear-gradient(135deg, #c084fc 0%, #a855f7 30%, #7c3aed 60%, #6d28d9 100%);
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 30%, #9a7c1a 60%, #7a5f0a 100%);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -189,7 +189,7 @@ export default function Stats() {
         .vertical-divider {
           width: 2px;
           height: 80px;
-          background: linear-gradient(to bottom, transparent, #4f46e5, transparent);
+          background: linear-gradient(to bottom, transparent, #d4af37, transparent);
           margin: 0 auto;
         }
 

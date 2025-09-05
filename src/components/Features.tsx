@@ -44,6 +44,10 @@ export default function Features() {
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
           >
+            <div className="rt-home-four-three-box-data">
+              <h3 className="rt-category-cards-text">Quick & Hassle-Free Process</h3>
+              <p className="rt-financial-paragraph">Apply in minutes, get approved in as little as 24 hours, and access your funds without delay.</p>
+            </div>
             <div className="rt-home-four-three-box-pic">
               <Image
                 width={402}
@@ -52,9 +56,6 @@ export default function Features() {
                 src="https://cdn.prod.website-files.com/6862fb16fe3dc646bb7b5ee5/686301fce12dda7fde4ec114_311c7e254ef238128b3431e9890d78d2_Business-Image.webp"
                 className="rt-home-one-project-card-image"
               />
-            </div>
-            <div className="rt-home-four-three-box-data">
-              <p className="rt-financial-paragraph">Apply in minutes, get approved in as little as 24 hours, and access your funds without delay.</p>
             </div>
           </motion.div>
 
@@ -65,6 +66,10 @@ export default function Features() {
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
           >
+            <div className="rt-home-four-three-box-data">
+              <h3 className="rt-category-cards-text">No Hidden Fees</h3>
+              <p className="rt-financial-paragraph">What you see is what you get-transparent, upfront terms with no unexpected costs</p>
+            </div>
             <div className="rt-home-four-three-box-pic">
               <Image
                 width={402}
@@ -73,9 +78,6 @@ export default function Features() {
                 src="https://cdn.prod.website-files.com/6862fb16fe3dc646bb7b5ee5/686301fce12dda7fde4ec10f_e0d634d389425b166ef9bcdec3a10a9c_Seamless-Img.webp"
                 className="rt-home-one-project-card-image"
               />
-            </div>
-            <div className="rt-home-four-three-box-data">
-              <p className="rt-financial-paragraph">What you see is what you get-transparent, upfront terms with no unexpected costs.</p>
             </div>
           </motion.div>
 
@@ -86,6 +88,10 @@ export default function Features() {
             transition={{ duration: 0.8, delay: 0.7 }}
             viewport={{ once: true }}
           >
+            <div className="rt-home-four-three-box-data">
+              <h3 className="rt-category-cards-text">Flexible Funding Options</h3>
+              <p className="rt-financial-paragraph">Customized financing solutions tailored to the needs of your aesthetic or wellness business.</p>
+            </div>
             <div className="rt-home-four-three-box-pic">
               <Image
                 width={402}
@@ -94,9 +100,6 @@ export default function Features() {
                 src="https://cdn.prod.website-files.com/6862fb16fe3dc646bb7b5ee5/686301fce12dda7fde4ec118_830191e1f7dc50e415019bccab7d3c8b_Financial-Image.webp"
                 className="rt-home-one-project-card-image"
               />
-            </div>
-            <div className="rt-home-four-three-box-data">
-              <p className="rt-financial-paragraph">Customized financing solutions tailored to the unique needs of your aesthetic or wellness business.</p>
             </div>
           </motion.div>
         </motion.div>
@@ -111,15 +114,6 @@ export default function Features() {
               viewport={{ once: true }}
             >
               <div className="rt-home-four-support-card rt-radius-twenty">
-                <div className="rt-card-image-container">
-                  <Image
-                    width={174}
-                    height={142}
-                    alt="Dashboard"
-                    src="https://cdn.prod.website-files.com/6862fb16fe3dc646bb7b5ee5/68630d91cda4f82738e45644_9413822b8f13450a273bea95f0d09489_Img-2.png"
-                    className="rt-card-image"
-                  />
-                </div>
                 <div className="rt-card-content">
                   <div className="rt-heading-six rt-margin-bottom-ten">Call to Speak With Us</div>
                   <p className="rt-padding-bottom-ten">
@@ -135,15 +129,6 @@ export default function Features() {
               </div>
 
               <div className="rt-home-four-support-card rt-radius-twenty">
-                <div className="rt-card-image-container">
-                  <Image
-                    width={171}
-                    height={142}
-                    alt="Dashboard"
-                    src="https://cdn.prod.website-files.com/6862fb16fe3dc646bb7b5ee5/68630d91cda4f82738e45644_9413822b8f13450a273bea95f0d09489_Img-2.png"
-                    className="rt-card-image"
-                  />
-                </div>
                 <div className="rt-card-content">
                   <div className="rt-heading-six rt-margin-bottom-ten">Start Your Application Online</div>
                   <p className="rt-padding-bottom-ten">
@@ -151,7 +136,7 @@ export default function Features() {
                   </p>
                   <div className="rt-home-four-support-btn-flex">
                     <a href="#" role="button" className="rt-all-btn rt-padding-zero rt-btn-color-midnight-blue">
-                      <span className="rt-btn-text">start my application</span>
+                      <span className="rt-btn-text">Start My Application</span>
                       <span className="rt-btn-arrow">→</span>
                     </a>
                   </div>
@@ -164,7 +149,7 @@ export default function Features() {
 
       <style jsx>{`
         .rt-component-section-desktop {
-          background: #111827;
+          background: #0a0a0a;
           padding: 120px 0;
           position: relative;
           overflow: hidden;
@@ -212,21 +197,22 @@ export default function Features() {
         .rt-home-four-three-box-one {
           flex: 1;
           min-width: 300px;
-          background: #1f2937;
+          background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
           border-radius: 16px;
           overflow: hidden;
-          border: 1px solid #374151;
+          border: 1px solid rgba(255, 255, 255, 0.1);
           transition: all 0.3s ease;
+          padding: 0 !important;
         }
 
         .rt-home-four-three-box-one:hover {
           transform: translateY(-5px);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-          border-color: #4f46e5;
+          border-color: #d4af37;
         }
 
         .rt-home-four-three-box-data {
-          padding: 40px;
+          padding: 32px 32px 24px 32px;
         }
 
         .rt-financial-planning-block {
@@ -240,25 +226,40 @@ export default function Features() {
         .rt-category-cards-text {
           font-size: 20px;
           font-weight: 700;
-          color: #4f46e5;
+          color: white;
+          margin-bottom: 16px;
         }
 
         .rt-financial-paragraph {
           font-size: 16px;
           line-height: 1.6;
-          color: #9ca3af;
+          color: rgba(255, 255, 255, 0.9);
         }
 
         .rt-home-four-three-box-pic {
           width: 100%;
           height: 210px;
           overflow: hidden;
+          margin: 0 !important;
+          padding: 0 !important;
+          border-radius: 0 0 16px 16px;
+          position: relative;
         }
 
         .rt-home-one-project-card-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
+          outline: none !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
         }
 
         .rt-component-section-3 {
@@ -276,14 +277,69 @@ export default function Features() {
         }
 
         .rt-home-four-support-card {
-          background: #1e40af;
+          background: 
+            linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%),
+            url('/images/cta-card-background.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
           padding: 40px;
           border-radius: 20px;
-          border: 1px solid #3b82f6;
-          transition: all 0.3s ease;
+          transition: all 0.6s ease, box-shadow 0.4s ease;
           display: flex;
-          gap: 24px;
+          flex-direction: column;
+          justify-content: center;
           align-items: flex-start;
+          box-shadow: 0 8px 32px rgba(212, 175, 55, 0.15);
+          min-height: 300px;
+        }
+
+        .rt-home-four-support-card:first-child {
+          background-position: left center;
+        }
+
+        .rt-home-four-support-card:last-child {
+          background-position: right center;
+        }
+
+        .rt-home-four-support-card:first-child:hover {
+          background: url('/images/cta-card-background.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: left center;
+          box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .rt-home-four-support-card:last-child:hover {
+          background: url('/images/cta-card-background.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: right center;
+          box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3), 0 0 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .rt-home-four-support-card .rt-heading-six,
+        .rt-home-four-support-card h1,
+        .rt-home-four-support-card h2,
+        .rt-home-four-support-card h3,
+        .rt-home-four-support-card h4,
+        .rt-home-four-support-card h5,
+        .rt-home-four-support-card h6 {
+          color: #ffffff !important;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .rt-home-four-support-card p,
+        .rt-home-four-support-card .rt-padding-bottom-ten {
+          color: #ffffff !important;
+          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .rt-card-content {
+          width: 100%;
+        }
+
+        .rt-home-four-support-btn-flex {
+          margin-top: 24px;
         }
 
         .rt-card-image-container {
@@ -308,7 +364,7 @@ export default function Features() {
         .rt-home-four-support-card:hover {
           transform: translateY(-5px);
           box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-          border-color: #4f46e5;
+          border-color: #d4af37;
         }
 
         .rt-heading-six {
@@ -339,18 +395,19 @@ export default function Features() {
           align-items: center;
           gap: 8px;
           padding: 16px 24px;
-          background: #1e40af;
-          color: white;
+          background: #d4af37;
+          color: #000000;
           text-decoration: none;
           border-radius: 8px;
           font-weight: 600;
           transition: all 0.3s ease;
-          border: 1px solid #3b82f6;
+          border: 1px solid #d4af37;
         }
 
         .rt-all-btn:hover {
-          background: #3b82f6;
+          background: #b8941f;
           transform: translateY(-2px);
+          box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
         }
 
         .rt-btn-text {

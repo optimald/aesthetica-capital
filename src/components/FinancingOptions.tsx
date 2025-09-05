@@ -2,8 +2,19 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useState } from 'react'
+import Modal from './Modal'
 
 export default function FinancingOptions() {
+  const [activeModal, setActiveModal] = useState<string | null>(null)
+
+  const openModal = (modalType: string) => {
+    setActiveModal(modalType)
+  }
+
+  const closeModal = () => {
+    setActiveModal(null)
+  }
   return (
     <section className="growth-card-section-vdesktop">
       <div className="container">
@@ -22,7 +33,7 @@ export default function FinancingOptions() {
             <motion.a
               href="/apply"
               target="_blank"
-              className="layout-wrapper"
+              className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -44,13 +55,13 @@ export default function FinancingOptions() {
                 - 1-5 year terms<br/>
                 - Pre-qualify with a soft credit check
               </div>
-              <p className="paragraph-2">Learn More <strong>→</strong></p>
+              <p className="paragraph-2" onClick={() => openModal('startup')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
             </motion.a>
 
             <motion.a
               href="/apply"
               target="_blank"
-              className="layout-wrapper"
+              className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -70,13 +81,13 @@ export default function FinancingOptions() {
                 - No minimum credit score required<br/>
                 - Daily or weekly payments
               </div>
-              <p className="paragraph-2">Learn More <strong>→</strong></p>
+              <p className="paragraph-2" onClick={() => openModal('cash-advance')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
             </motion.a>
 
             <motion.a
               href="/apply"
               target="_blank"
-              className="layout-wrapper tall"
+              className="layout-wrapper w-inline-block tall"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -97,7 +108,7 @@ export default function FinancingOptions() {
                 - 1 year in business required<br/>
                 - Terms up to 5 years
               </div>
-              <p className="paragraph-2">Learn More <strong>→</strong></p>
+              <p className="paragraph-2" onClick={() => openModal('equipment')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
               <Image
                 src="/images/fintech-card.png"
                 width={300}
@@ -110,7 +121,7 @@ export default function FinancingOptions() {
             <motion.a
               href="/apply"
               target="_blank"
-              className="layout-wrapper wide"
+              className="layout-wrapper w-inline-block wide"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -133,13 +144,13 @@ export default function FinancingOptions() {
                   - Simple online application
                 </div>
               </div>
-              <p className="paragraph-2">Learn More <strong>→</strong></p>
+              <p className="paragraph-2" onClick={() => openModal('line-of-credit')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
             </motion.a>
 
             <motion.a
               href="/apply"
               target="_blank"
-              className="layout-wrapper"
+              className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -160,13 +171,13 @@ export default function FinancingOptions() {
                 - Affordable fixed payments<br/>
                 - Receive funds within 24 hours
               </div>
-              <p className="paragraph-2">Learn More <strong>→</strong></p>
+              <p className="paragraph-2" onClick={() => openModal('unsecured')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
             </motion.a>
 
             <motion.a
               href="/apply"
               target="_blank"
-              className="layout-wrapper"
+              className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -188,13 +199,13 @@ export default function FinancingOptions() {
                 - 2+ years in business & 680+ credit score<br/>
                 - Business must meet SBA eligibility
               </div>
-              <p className="paragraph-2">Learn More <strong>→</strong></p>
+              <p className="paragraph-2" onClick={() => openModal('sba')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
             </motion.a>
 
             <motion.a
               href="/apply"
               target="_blank"
-              className="layout-wrapper"
+              className="layout-wrapper w-inline-block"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.7 }}
@@ -213,7 +224,7 @@ export default function FinancingOptions() {
                 - Build and strengthen your business credit profile<br/>
                 - Access flexible spending with customizable credit limits
               </div>
-              <p className="paragraph-2">Learn More <strong>→</strong></p>
+              <p className="paragraph-2" onClick={() => openModal('credit-cards')} style={{ cursor: 'pointer' }}>Learn More <strong>→</strong></p>
             </motion.a>
           </div>
         </div>
@@ -234,205 +245,179 @@ export default function FinancingOptions() {
         />
       </div>
 
-      <style jsx>{`
-        .growth-card-section-vdesktop {
-          background: 
-            linear-gradient(135deg, #0a0a0a 0%, #1a0d2e 15%, #2d1b69 35%, #4c1d95 55%, #7c3aed 75%, #a855f7 90%, #c084fc 100%),
-            radial-gradient(circle at 30% 70%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 70% 30%, rgba(168, 85, 247, 0.2) 0%, transparent 50%);
-          padding: 140px 0;
-          position: relative;
-          overflow: hidden;
-        }
+      {/* Modals */}
+      <Modal isOpen={activeModal === 'startup'} onClose={closeModal} title="Startup Capital Loan">
+        <h3>What is a Startup Capital Loan?</h3>
+        <p>A startup capital loan is designed specifically for new businesses or those looking to expand. This type of financing provides the working capital needed to launch operations, purchase equipment, hire staff, or cover initial operating expenses.</p>
+        
+        <h3>Key Benefits</h3>
+        <ul>
+          <li>Quick access to capital for business growth</li>
+          <li>Flexible repayment terms from 1-5 years</li>
+          <li>Soft credit check for pre-qualification</li>
+          <li>Competitive interest rates</li>
+        </ul>
 
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-          position: relative;
-          z-index: 2;
-        }
+        <h3>Requirements</h3>
+        <ul>
+          <li>Minimum credit score of 680</li>
+          <li>Business plan or financial projections</li>
+          <li>Personal guarantee may be required</li>
+        </ul>
 
-        .features-layout {
-          text-align: center;
-          margin-bottom: 80px;
-        }
+        <div className="modal-cta">
+          <a href="/apply" className="modal-button">Apply Now</a>
+        </div>
+      </Modal>
 
-        .heading-2 {
-          font-size: 36px;
-          font-weight: 700;
-          color: white;
-          margin-bottom: 60px;
-          line-height: 1.3;
-        }
+      <Modal isOpen={activeModal === 'cash-advance'} onClose={closeModal} title="Business Cash Advance">
+        <h3>What is a Business Cash Advance?</h3>
+        <p>A business cash advance provides immediate access to capital based on your future credit card sales or bank deposits. This is an ideal solution for businesses with consistent daily or weekly revenue who need quick funding.</p>
+        
+        <h3>Key Benefits</h3>
+        <ul>
+          <li>Fast approval and funding within 24 hours</li>
+          <li>No minimum credit score requirement</li>
+          <li>Flexible repayment based on sales</li>
+          <li>No collateral required</li>
+        </ul>
 
-        .w-layout-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: repeat(3, minmax(300px, auto));
-          gap: 40px;
-          margin-bottom: 80px;
-        }
+        <h3>How It Works</h3>
+        <ul>
+          <li>Repayment is automatically deducted from daily sales</li>
+          <li>Payments adjust with your business performance</li>
+          <li>No fixed monthly payments</li>
+        </ul>
 
-        .layout-wrapper {
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          padding: 40px;
-          border-radius: 24px;
-          text-decoration: none;
-          color: #ffffff;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          position: relative;
-          overflow: hidden;
-          min-height: 300px;
-          box-shadow: 
-            0 8px 32px rgba(124, 58, 237, 0.15),
-            0 4px 16px rgba(168, 85, 247, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
+        <div className="modal-cta">
+          <a href="/apply" className="modal-button">Get Started</a>
+        </div>
+      </Modal>
 
-        .layout-wrapper::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(192, 132, 252, 0.1) 100%);
-          opacity: 0;
-          transition: opacity 0.4s ease;
-          border-radius: 24px;
-        }
+      <Modal isOpen={activeModal === 'equipment'} onClose={closeModal} title="Equipment Financing">
+        <h3>What is Equipment Financing?</h3>
+        <p>Equipment financing allows you to purchase or lease the equipment your business needs without a large upfront investment. This includes medical devices, technology, vehicles, machinery, and other business equipment.</p>
+        
+        <h3>Financing Options</h3>
+        <ul>
+          <li><strong>Equipment Loans:</strong> Purchase equipment with fixed monthly payments</li>
+          <li><strong>Equipment Leasing:</strong> Rent equipment with lower monthly payments</li>
+          <li><strong>Leasebacks:</strong> Sell existing equipment and lease it back</li>
+        </ul>
 
-        .layout-wrapper:hover {
-          transform: translateY(-12px) scale(1.02);
-          box-shadow: 
-            0 20px 60px rgba(124, 58, 237, 0.25),
-            0 10px 30px rgba(168, 85, 247, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-          border-color: rgba(192, 132, 252, 0.4);
-          background: rgba(255, 255, 255, 0.15);
-        }
+        <h3>Benefits</h3>
+        <ul>
+          <li>Preserve working capital</li>
+          <li>Tax advantages and depreciation benefits</li>
+          <li>Upgrade equipment as technology advances</li>
+          <li>Flexible terms up to 5 years</li>
+        </ul>
 
-        .layout-wrapper:hover::before {
-          opacity: 1;
-        }
+        <div className="modal-cta">
+          <a href="/apply" className="modal-button">Learn More</a>
+        </div>
+      </Modal>
 
-        .layout-wrapper.tall {
-          grid-row: span 2 !important;
-          min-height: 630px !important;
-          background: #2d1b69 !important;
-          border: 2px solid #8b5cf6 !important;
-        }
+      <Modal isOpen={activeModal === 'line-of-credit'} onClose={closeModal} title="Business Line of Credit">
+        <h3>What is a Business Line of Credit?</h3>
+        <p>A business line of credit provides flexible access to funds that you can draw from as needed. You only pay interest on the amount you use, making it an excellent tool for managing cash flow and unexpected expenses.</p>
+        
+        <h3>Key Features</h3>
+        <ul>
+          <li>Access funds up to your credit limit</li>
+          <li>24-hour approval with same-day funding</li>
+          <li>Simple online application process</li>
+          <li>Revolving credit that replenishes as you pay</li>
+        </ul>
 
-        .layout-wrapper.wide {
-          grid-column: span 2 !important;
-          background: #1e3a8a !important;
-          border: 2px solid #6366f1 !important;
-        }
+        <h3>Perfect For</h3>
+        <ul>
+          <li>Seasonal businesses with fluctuating cash flow</li>
+          <li>Emergency funding needs</li>
+          <li>Inventory purchases</li>
+          <li>Opportunity investments</li>
+        </ul>
 
-        .featured-icon-wrapper {
-          width: 68px;
-          height: 68px;
-          background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
-          border-radius: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 32px;
-          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: 
-            0 8px 25px rgba(124, 58, 237, 0.4),
-            0 4px 12px rgba(168, 85, 247, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
+        <div className="modal-cta">
+          <a href="/apply" className="modal-button">Apply Today</a>
+        </div>
+      </Modal>
 
-        .layout-wrapper:hover .featured-icon-wrapper {
-          transform: scale(1.15) rotate(8deg);
-          box-shadow: 
-            0 15px 40px rgba(124, 58, 237, 0.6),
-            0 8px 20px rgba(168, 85, 247, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
+      <Modal isOpen={activeModal === 'unsecured'} onClose={closeModal} title="Unsecured Business Loan">
+        <h3>What is an Unsecured Business Loan?</h3>
+        <p>An unsecured business loan provides capital without requiring collateral. This type of financing is based on your business's creditworthiness and cash flow, making it ideal for businesses with strong financials but limited assets.</p>
+        
+        <h3>Key Benefits</h3>
+        <ul>
+          <li>No collateral required</li>
+          <li>Fast funding within 24 hours</li>
+          <li>Fixed monthly payments</li>
+          <li>Competitive interest rates</li>
+        </ul>
 
-        .heading-3,
-        .layout-wrapper h4 {
-          font-size: 26px;
-          font-weight: 700;
-          color: #ffffff;
-          margin-bottom: 20px;
-          line-height: 1.2;
-          font-family: 'Inter', sans-serif;
-          text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
+        <h3>Requirements</h3>
+        <ul>
+          <li>Strong business credit history</li>
+          <li>Consistent revenue and cash flow</li>
+          <li>Personal guarantee typically required</li>
+          <li>Minimum time in business</li>
+        </ul>
 
-        .paragraph {
-          font-size: 16px;
-          line-height: 1.7;
-          color: rgba(255, 255, 255, 0.8);
-          margin-bottom: 28px;
-          font-family: 'Inter', sans-serif;
-          font-weight: 400;
-        }
+        <div className="modal-cta">
+          <a href="/apply" className="modal-button">Get Pre-Qualified</a>
+        </div>
+      </Modal>
 
-        .paragraph.max-width-40ch {
-          max-width: 40ch;
-        }
+      <Modal isOpen={activeModal === 'sba'} onClose={closeModal} title="SBA 7(a) Growth Loan">
+        <h3>What is an SBA 7(a) Loan?</h3>
+        <p>The SBA 7(a) loan program is the Small Business Administration's primary business loan program. It provides long-term, low-cost financing for businesses that meet SBA eligibility requirements, with the government guaranteeing a portion of the loan.</p>
+        
+        <h3>Key Benefits</h3>
+        <ul>
+          <li>Lower interest rates (6%-10%)</li>
+          <li>Longer repayment terms (up to 10 years)</li>
+          <li>Government-backed security</li>
+          <li>Flexible use of funds</li>
+        </ul>
 
-        .paragraph-2 {
-          font-size: 16px;
-          font-weight: 700;
-          color: #c084fc;
-          margin: 0;
-          transition: all 0.3s ease;
-          font-family: 'Inter', sans-serif;
-          text-shadow: 0 2px 8px rgba(192, 132, 252, 0.4);
-        }
+        <h3>Eligibility Requirements</h3>
+        <ul>
+          <li>2+ years in business</li>
+          <li>680+ credit score</li>
+          <li>Meet SBA size standards</li>
+          <li>Demonstrate ability to repay</li>
+        </ul>
 
-        .layout-wrapper:hover .paragraph-2 {
-          color: #e879f9;
-          text-shadow: 0 2px 12px rgba(232, 121, 249, 0.6);
-        }
+        <div className="modal-cta">
+          <a href="/apply" className="modal-button">Check Eligibility</a>
+        </div>
+      </Modal>
 
-        .feature-card-image {
-          width: 100%;
-          height: auto;
-          border-radius: 12px;
-          margin-top: 24px;
-        }
+      <Modal isOpen={activeModal === 'credit-cards'} onClose={closeModal} title="Business Credit Cards">
+        <h3>What are Business Credit Cards?</h3>
+        <p>Business credit cards are designed specifically for business expenses and help separate personal and business finances. They offer rewards, expense tracking, and help build your business credit profile.</p>
+        
+        <h3>Key Benefits</h3>
+        <ul>
+          <li>Build and strengthen business credit</li>
+          <li>Rewards and cashback on purchases</li>
+          <li>Expense tracking and reporting</li>
+          <li>Employee cards with spending limits</li>
+        </ul>
 
-        .bg-gradient {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          opacity: 0.1;
-          z-index: 1;
-        }
+        <h3>Features</h3>
+        <ul>
+          <li>Customizable credit limits</li>
+          <li>Detailed monthly statements</li>
+          <li>Online account management</li>
+          <li>Fraud protection</li>
+        </ul>
 
-        .bg-gradient.right {
-          right: 0;
-          left: auto;
-        }
+        <div className="modal-cta">
+          <a href="/apply" className="modal-button">Apply Now</a>
+        </div>
+      </Modal>
 
-        @media (max-width: 768px) {
-          .w-layout-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
-
-          .layout-wrapper {
-            padding: 30px 20px;
-          }
-
-          .heading-2 {
-            font-size: 28px;
-          }
-        }
-      `}</style>
     </section>
   )
 }

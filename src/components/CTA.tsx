@@ -47,7 +47,7 @@ export default function CTA() {
 
       <style jsx>{`
         .growth-card-section-vmobile {
-          background: #111827;
+          background: #0a0a0a;
           padding: 120px 0;
           position: relative;
           overflow: hidden;
@@ -99,7 +99,7 @@ export default function CTA() {
         .button {
           display: inline-block;
           padding: 16px 32px;
-          background: #4f46e5;
+          background: #d4af37;
           color: white;
           text-decoration: none;
           border-radius: 8px;
@@ -108,7 +108,7 @@ export default function CTA() {
         }
 
         .button:hover {
-          background: #4338ca;
+          background: #b8941f;
           transform: translateY(-2px);
         }
 
@@ -118,14 +118,14 @@ export default function CTA() {
           background: transparent;
           color: white;
           text-decoration: none;
-          border: 2px solid #4f46e5;
+          border: 2px solid #d4af37;
           border-radius: 8px;
           font-weight: 600;
           transition: all 0.3s ease;
         }
 
         .button-secondary:hover {
-          background: #4f46e5;
+          background: #d4af37;
           transform: translateY(-2px);
         }
 
