@@ -6,6 +6,7 @@ import Image from 'next/image'
 
 export default function Hero() {
   const [currentStep, setCurrentStep] = useState(1)
+  const [selectedVideo, setSelectedVideo] = useState(1)
   const [formData, setFormData] = useState({
     businessName: '',
     businessStartDate: '',
@@ -16,6 +17,12 @@ export default function Hero() {
     email: '',
     phone: ''
   })
+
+  const videoOptions = [
+    { id: 1, src: '/videos/hero-background.mp4', name: 'Video 1' },
+    { id: 2, src: '/videos/hero-video-2.mov', name: 'Video 2' },
+    { id: 3, src: '/videos/hero-video-3.mov', name: 'Video 3' }
+  ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -53,10 +60,24 @@ export default function Hero() {
           muted
           loop
           playsInline
+          key={selectedVideo}
         >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
-          <source src="/videos/hero-background.mov" type="video/quicktime" />
+          <source src={videoOptions[selectedVideo - 1].src} type="video/mp4" />
         </video>
+
+        {/* Video Selector */}
+        <div className="video-selector">
+          {videoOptions.map((video) => (
+            <button
+              key={video.id}
+              className={`video-selector-btn ${selectedVideo === video.id ? 'active' : ''}`}
+              onClick={() => setSelectedVideo(video.id)}
+              title={video.name}
+            >
+              <span className="video-selector-dot"></span>
+            </button>
+          ))}
+        </div>
 
         <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'left' }}>
           <div className="hero-layout">
@@ -653,6 +674,70 @@ export default function Hero() {
               max-width: 300px;
             }
 
+          }
+
+          /* Video Selector Styles */
+          .video-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+          }
+
+          .video-selector-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+          }
+
+          .video-selector-btn:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.1);
+          }
+
+          .video-selector-btn.active {
+            border-color: #d4af37;
+            background: #d4af37;
+          }
+
+          .video-selector-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: transparent;
+            transition: background 0.3s ease;
+          }
+
+          .video-selector-btn.active .video-selector-dot {
+            background: #000000;
+          }
+
+          @media (max-width: 768px) {
+            .video-selector {
+              top: 15px;
+              right: 15px;
+            }
+
+            .video-selector-btn {
+              width: 10px;
+              height: 10px;
+            }
+
+            .video-selector-dot {
+              width: 3px;
+              height: 3px;
+            }
           }
         `}</style>
       </section>
