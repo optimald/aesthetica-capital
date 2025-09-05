@@ -63,10 +63,10 @@ export default function Cookies() {
         "Preferences" menu. Common browsers include:
       </p>
       <ul>
-        <li>Chrome: Settings > Privacy and Security > Cookies</li>
-        <li>Firefox: Options > Privacy & Security > Cookies</li>
-        <li>Safari: Preferences > Privacy > Cookies</li>
-        <li>Edge: Settings > Cookies and Site Permissions</li>
+        <li>Chrome: Settings &gt; Privacy and Security &gt; Cookies</li>
+        <li>Firefox: Options &gt; Privacy &amp; Security &gt; Cookies</li>
+        <li>Safari: Preferences &gt; Privacy &gt; Cookies</li>
+        <li>Edge: Settings &gt; Cookies and Site Permissions</li>
       </ul>
 
       <h2>Third-Party Cookies</h2>
