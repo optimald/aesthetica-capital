@@ -3,69 +3,115 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
-const logos = [
-  { src: '/images/logo-01.svg', alt: 'AriseHealth' },
-  { src: '/images/logo-03.svg', alt: 'OE' },
-  { src: '/images/logo-04.svg', alt: '2020INC' },
-  { src: '/images/logo-02.svg', alt: 'The Paak' },
-  { src: '/images/logo-05.svg', alt: 'Ephicient' },
-  { src: '/images/logo-08.svg', alt: 'Toogether' }
-]
-
 export default function ClientLogos() {
   return (
-    <section className="logos-section">
-      <div className="container">
-        <motion.div 
-          className="logos-wrapper"
+    <section className="logos-title-small">
+      <div className="container-5">
+        <motion.div
+          className="clients-wrapper-three"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {logos.map((logo, index) => (
-            <Image
-              key={index}
-              src={logo.src}
-              alt={logo.alt}
-              width={120}
-              height={40}
-              className="client-logo"
-            />
-          ))}
+          <Image
+            src="https://cdn.prod.website-files.com/62434fa732124a0fb112aab4/62434fa732124a395a12aaf3_logo-01.svg"
+            alt="AriseHealth logo"
+            width={120}
+            height={60}
+            className="clients-image-three"
+          />
+          <Image
+            src="https://cdn.prod.website-files.com/62434fa732124a0fb112aab4/62434fa732124ae38212aaf1_logo-03.svg"
+            alt="OE logo"
+            width={120}
+            height={60}
+            className="clients-image-three"
+          />
+          <Image
+            src="https://cdn.prod.website-files.com/62434fa732124a0fb112aab4/62434fa732124a411512aaf4_logo-04.svg"
+            alt="2020INC logo"
+            width={120}
+            height={60}
+            className="clients-image-three"
+          />
+          <Image
+            src="https://cdn.prod.website-files.com/62434fa732124a0fb112aab4/62434fa732124ade1612aaf2_logo-02.svg"
+            alt="The Paak logo"
+            width={120}
+            height={60}
+            className="clients-image-three"
+          />
+          <Image
+            src="https://cdn.prod.website-files.com/62434fa732124a0fb112aab4/62434fa732124a3cd712aaf6_logo-05.svg"
+            alt="Ephicient logo"
+            width={120}
+            height={60}
+            className="clients-image-three"
+          />
+          <Image
+            src="https://cdn.prod.website-files.com/62434fa732124a0fb112aab4/62434fa732124a85fd12aaf5_logo-08.svg"
+            alt="Toogether logo"
+            width={120}
+            height={60}
+            className="clients-image-three"
+          />
         </motion.div>
       </div>
 
       <style jsx>{`
-        .logos-section {
+        .logos-title-small {
+          background: #111827;
           padding: 60px 0;
-          background: white;
-          border-bottom: 1px solid #e5e7eb;
+          border-top: 1px solid #374151;
+          border-bottom: 1px solid #374151;
         }
 
-        .logos-wrapper {
+        .container-5 {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+
+        .clients-wrapper-three {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          gap: 40px;
           flex-wrap: wrap;
+          gap: 40px;
         }
 
-        :global(.client-logo) {
-          filter: grayscale(100%);
-          opacity: 0.6;
-          transition: all 0.3s;
+        .clients-image-three {
+          filter: brightness(0) invert(1);
+          opacity: 0.7;
+          transition: opacity 0.3s ease;
+          max-width: 120px;
+          height: auto;
         }
 
-        :global(.client-logo:hover) {
-          filter: grayscale(0%);
+        .clients-image-three:hover {
           opacity: 1;
         }
 
         @media (max-width: 768px) {
-          .logos-wrapper {
+          .clients-wrapper-three {
             justify-content: center;
             gap: 30px;
+          }
+
+          .clients-image-three {
+            max-width: 100px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .clients-wrapper-three {
+            gap: 20px;
+          }
+
+          .clients-image-three {
+            max-width: 80px;
           }
         }
       `}</style>
