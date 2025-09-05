@@ -137,6 +137,10 @@ export default function CTA() {
         }
 
         @media (max-width: 768px) {
+          .growth-card-section-vmobile.cta {
+            padding: 60px 20px;
+          }
+
           .cta-layout {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -144,15 +148,47 @@ export default function CTA() {
           }
 
           .heading.hero {
-            font-size: 36px;
+            font-size: 32px;
+            line-height: 1.2;
+            margin-bottom: 20px;
           }
 
           .heading.text-color-gray500 {
-            font-size: 20px;
+            font-size: 18px;
+            line-height: 1.4;
+            margin-bottom: 30px;
           }
 
           .button-row {
             justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+          }
+
+          .button.primary {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+          }
+
+          .button.secondary {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .growth-card-section-vmobile.cta {
+            padding: 40px 16px;
+          }
+
+          .heading.hero {
+            font-size: 28px;
+          }
+
+          .heading.text-color-gray500 {
+            font-size: 16px;
           }
         }
       `}</style>

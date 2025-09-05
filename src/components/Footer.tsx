@@ -233,6 +233,10 @@ export default function Footer() {
         }
 
         @media (max-width: 768px) {
+          .section-1921 {
+            padding: 60px 20px 40px;
+          }
+
           .w-layout-grid {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -241,6 +245,21 @@ export default function Footer() {
           .footer-menu-wrapper {
             grid-template-columns: 1fr;
             gap: 30px;
+            text-align: center;
+          }
+
+          .footer-left-wrapper {
+            text-align: center;
+          }
+
+          .footer-link-list-heading {
+            font-size: 16px;
+            margin-bottom: 16px;
+          }
+
+          .footer-link {
+            font-size: 14px;
+            padding: 8px 0;
           }
 
           .footer-bottom-wrapper {
@@ -251,6 +270,34 @@ export default function Footer() {
 
           .footer-legal-list {
             justify-content: center;
+            gap: 20px;
+          }
+
+          .footer-legal-link {
+            font-size: 14px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .section-1921 {
+            padding: 40px 16px 30px;
+          }
+
+          .footer-menu-wrapper {
+            gap: 24px;
+          }
+
+          .footer-link-list-heading {
+            font-size: 14px;
+          }
+
+          .footer-link {
+            font-size: 13px;
+          }
+
+          .footer-legal-list {
+            flex-direction: column;
+            gap: 12px;
           }
         }
       `}</style>

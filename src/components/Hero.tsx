@@ -656,38 +656,87 @@ export default function Hero() {
 
           @media (max-width: 768px) {
             .section-1920 {
-              padding: 10px 0;
-              height: calc(100vh - 100px);
+              padding: 20px 0;
+              height: auto;
+              min-height: calc(100vh - 80px);
             }
 
             .hero-layout {
               grid-template-columns: 1fr;
-              gap: 15px;
-              text-align: left;
-              max-height: calc(100vh - 120px);
+              gap: 30px;
+              text-align: center;
+              max-height: none;
+              padding: 20px;
             }
 
             .hero-content {
               padding-right: 0;
               max-width: 100%;
+              order: 2;
+            }
+
+            .form-block-3-desktop {
+              order: 1;
+              max-width: 100%;
+              margin: 0 auto;
             }
 
             .h1-desktop {
-              font-size: 28px;
+              font-size: 32px;
               line-height: 1.2;
-              margin-bottom: 12px;
+              margin-bottom: 20px;
             }
 
             .h2-subtitle {
-              font-size: 16px;
+              font-size: 18px;
+              margin-bottom: 20px;
               line-height: 1.4;
-              margin-bottom: 12px;
             }
 
             .paragraph-default-desktop {
-              font-size: 14px;
-              line-height: 1.4;
+              font-size: 16px;
+              line-height: 1.5;
               max-width: 100%;
+              margin-bottom: 20px;
+            }
+
+            .form-step {
+              padding: 20px;
+            }
+
+            .form-heading {
+              font-size: 20px;
+              margin-bottom: 20px;
+            }
+
+            .fields-group {
+              gap: 16px;
+              margin-bottom: 20px;
+            }
+
+            .name-fields-row {
+              flex-direction: column;
+              gap: 16px;
+            }
+
+            .form-nav {
+              margin-top: 30px;
+              flex-direction: column;
+              gap: 16px;
+            }
+
+            .form-back {
+              order: 2;
+              text-align: center;
+              padding: 12px;
+            }
+
+            .form-next,
+            .form-button {
+              order: 1;
+              width: 100%;
+              padding: 14px 20px;
+              font-size: 16px;
             }
 
             .form-block-3-desktop {

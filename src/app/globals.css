@@ -896,6 +896,36 @@ button {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  /* Financing Options Mobile */
+  .growth-card-section-vdesktop {
+    padding: 80px 0;
+  }
+
+  .features-layout {
+    padding: 0 16px;
+  }
+
+  .layout-wrapper {
+    padding: 24px;
+    min-height: 250px;
+  }
+
+  .featured-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+  }
+
+  .heading-2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .paragraph-2 {
+    font-size: 14px;
+    line-height: 1.5;
+  }
   
   .stat-number {
     font-size: 48px;

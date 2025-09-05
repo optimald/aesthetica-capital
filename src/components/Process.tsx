@@ -507,14 +507,19 @@ export default function Process() {
         }
 
         @media (max-width: 768px) {
+          .section-1921 {
+            padding: 60px 20px;
+          }
+
           .w-layout-grid {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 50px;
           }
 
           .step-wrapper {
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
+            text-align: center;
           }
 
           .step-1-info-wrapper,
@@ -523,11 +528,60 @@ export default function Process() {
           .step-4-info-wrapper,
           .step-5-info-wrapper {
             flex-direction: column;
-            gap: 20px;
+            gap: 24px;
+            align-items: center;
+          }
+
+          .heading-2-small {
+            font-size: 32px;
+            margin-bottom: 20px;
+          }
+
+          .paragraph-2 {
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 100%;
+          }
+
+          .step-number {
+            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+          }
+
+          .white-line {
+            display: none;
+          }
+
+          .black-line {
+            display: none;
+          }
+
+          .step-image {
+            max-width: 200px;
+            margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .section-1921 {
+            padding: 40px 16px;
+          }
+
+          .w-layout-grid {
+            gap: 40px;
           }
 
           .heading-2-small {
             font-size: 28px;
+          }
+
+          .step-number {
+            font-size: 16px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
           }
         }
       `}</style>

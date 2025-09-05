@@ -171,36 +171,57 @@ export default function Header() {
         @media (max-width: 768px) {
           .navbar-wrapper {
             display: flex;
-            flex-direction: column;
-            gap: 16px;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
           }
 
           .navbar-logo {
-            justify-self: center;
+            order: 1;
+            flex: 1;
+            min-width: 0;
           }
 
           .navbar-menu {
-            gap: 24px !important;
-            flex-wrap: wrap;
+            order: 3;
+            width: 100%;
+            gap: 20px !important;
             justify-content: center !important;
+            margin-top: 12px;
           }
 
           .button.nav {
-            justify-self: center;
-            margin-top: 8px;
+            order: 2;
+            padding: 10px 20px;
+            font-size: 14px;
+            white-space: nowrap;
           }
 
           .navbar-content {
-            padding: 16px 0;
+            padding: 16px 20px;
           }
         }
 
         @media (max-width: 480px) {
-          .navbar-menu {
-            gap: 16px !important;
+          .navbar-wrapper {
             flex-direction: column;
-            align-items: center;
+            gap: 12px;
+          }
+
+          .navbar-logo {
+            order: 1;
+            width: 100%;
+            text-align: center;
+          }
+
+          .navbar-menu {
+            order: 2;
+            gap: 20px !important;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 0;
           }
 
           .navbar-link {
@@ -209,8 +230,16 @@ export default function Header() {
           }
 
           .button.nav {
+            order: 3;
             padding: 12px 24px;
             font-size: 14px;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+          }
+
+          .navbar-content {
+            padding: 12px 16px;
           }
         }
       `}</style>
